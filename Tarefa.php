@@ -2,32 +2,28 @@
     //Classe Tarefa
     class Tarefa {
         //Atributos
-        private $TarefaTitulo;
+        private $TarefaId; //Chave Primária
         private $TarefaDescricao;
-        private $TarefaNota;
+        private $TarefaTitulo;
+        private $TarefaNivelPrioridade;
+        private $TarefaStatus;
         private $TarefaDataEntrega;
-        private $TarefaPrioridade;
-        private $TarefaAnexos = [];
-        private $TarefaEstudantesDestinados = [];
+        private $TarefaDataCriacao;
+        private $UsuarioId; //Chave Estrangeira
         //Fim dos Atributos
 
         //Metodo Construtor
-        public function __construct($TarefaTitulo, $TarefaDescricao, $TarefaNota, $TarefaDataEntrega, $TarefaPrioridade){
-            $this->setTarefaTitulo($TarefaTitulo);
+        public function __construct($TarefaDescricao, $TarefaTitulo, $TarefaNivelPrioridade, $TarefaStatus, $TarefaDataEntrega, $TarefaDataCriacao, $UsuarioId){
             $this->setTarefaDescricao($TarefaDescricao);
-            $this->setTarefaNota($TarefaNota);
+            $this->setTarefaTitulo($TarefaTitulo);
+            $this->setTarefaNivelPrioridade($TarefaNivelPrioridade);
+            $this->setTarefaStatus($TarefaStatus);
             $this->setTarefaDataEntrega($TarefaDataEntrega);
-            $this->setTarefaPrioridade($TarefaPrioridade);
+            $this->setTarefaDataCriacao($TarefaDataCriacao);
+            $this->setUsuarioId($UsuarioId);
         }//Fim do Metodo Construtor
 
         //Metodos Set's
-
-        //Metodo setTarefaTitulo()
-        public function setTarefaTitulo($TarefaTitulo){
-            if(is_string($TarefaTitulo)){
-                $this->TarefaTitulo = $TarefaTitulo;
-            }
-        }//Fim do Metodo setTarefaTitulo()
 
         //Metodo setTarefaDescricao()
         public function setTarefaDescricao($TarefaDescricao){
@@ -36,12 +32,30 @@
             }
         }//Fim do Metodo setTarefaDescricao()
 
-        //Metodo setTarefaNota()
-        public function setTarefaNota($TarefaNota){
-            if(is_float($TarefaNota) || is_int($TarefaNota)){
-                $this->TarefaNota = $TarefaNota;
+        //Metodo setTarefaTitulo()
+        public function setTarefaTitulo($TarefaTitulo){
+            if(is_string($TarefaTitulo)){
+                $this->TarefaTitulo = $TarefaTitulo;
             }
-        }//Fim do Metodo setTarefaNota()
+        }//Fim do Metodo setTarefaTitulo()
+
+        //Metodo setTarefaNivelPrioridade()
+        public function setTarefaNivelPrioridade($TarefaNivelPrioridade){
+            if(is_int($TarefaNivelPrioridade)){
+                if ($TarefaNivelPrioridade == 1 || $TarefaNivelPrioridade == 2 || $TarefaNivelPrioridade == 3) {
+                    $this->TarefaNivelPrioridade = $TarefaNivelPrioridade;
+                }
+            }
+        }//Fim do Metodo setTarefaNivelPrioridade()
+
+        //Metodo setTarefaStatus()
+        public function setTarefaStatus($TarefaStatus){
+            if(is_string($TarefaStatus)){
+                if ($TarefaStatus == "Pendente" || $TarefaStatus == "Em Andamento" || $TarefaStatus == "Concluída") {
+                    $this->TarefaStatus = $TarefaStatus;
+                }
+            }
+        }//Fim do Metodo setTarefaStatus()
 
         //Metodo setTarefaDataEntrega()
         public function setTarefaDataEntrega($TarefaDataEntrega){
@@ -50,83 +64,65 @@
             }
         }//Fim do Metodo setTarefaDataEntrega()
 
-        //Metodo setTarefaPrioridade()
-        public function setTarefaPrioridade($TarefaPrioridade){
-            if(is_string($TarefaPrioridade)){
-                if ($TarefaPrioridade == "Baixa" || $TarefaPrioridade == "Média" || $TarefaPrioridade == "Alta") {
-                    $this->TarefaPrioridade = $TarefaPrioridade;
-                }
+        //Metodo setTarefaDataCriacao()
+        public function setTarefaDataCriacao($TarefaDataCriacao){
+            if(is_string($TarefaDataCriacao)){
+                $this->TarefaDataCriacao = $TarefaDataCriacao;
             }
-        }//Fim do Metodo setTarefaPrioridade()
+        }//Fim do Metodo setTarefaDataCriacao()
+
+        //Metodo setUsuarioId()
+        public function setUsuarioId($UsuarioId){
+            if(is_int($UsuarioId)){
+                $this->UsuarioId = $UsuarioId;
+            }
+        }//Fim do Metodo setUsuarioId()
 
         //Fim dos Metodos Set's
 
         //Metodos Get's
 
-        //Metodo getTarefaTitulo()
-        public function getTarefaTitulo(){
-            return $this->TarefaTitulo;
-        }//Fim do Metodo getTarefaTitulo()
+        //Metodo getTarefaId()
+        public function getTarefaId(){
+            return $this->TarefaId;
+        }//Fim do Metodo getTarefaId()
 
         //Metodo getTarefaDescricao()
         public function getTarefaDescricao(){
             return $this->TarefaDescricao;
         }//Fim do Metodo getTarefaDescricao()
 
-        //Metodo getTarefaNota()
-        public function getTarefaNota(){
-            return $this->TarefaNota;
-        }//Fim do Metodo getTarefaNota()
+        //Metodo getTarefaTitulo()
+        public function getTarefaTitulo(){
+            return $this->TarefaTitulo;
+        }//Fim do Metodo getTarefaTitulo()
+
+        //Metodo getTarefaNivelPrioridade()
+        public function getTarefaNivelPrioridade(){
+            return $this->TarefaNivelPrioridade;
+        }//Fim do Metodo getTarefaNivelPrioridade()
+
+        //Metodo getTarefaStatus()
+        public function getTarefaStatus(){
+            return $this->TarefaStatus;
+        }//Fim do Metodo getTarefaStatus()
 
         //Metodo getTarefaDataEntrega()
         public function getTarefaDataEntrega(){
             return $this->TarefaDataEntrega;
         }//Fim do Metodo getTarefaDataEntrega()
 
-        //Metodo getTarefaPrioridade()
-        public function getTarefaPrioridade(){
-            return $this->TarefaPrioridade;
-        }//Fim do Metodo getTarefaPrioridade()
+        //Metodo getTarefaDataCriacao()
+        public function getTarefaDataCriacao(){
+            return $this->TarefaDataCriacao;
+        }//Fim do Metodo getTarefaDataCriacao()
 
-        //Metodo getTarefaAnexos()
-        public function getTarefaAnexos(){
-            return $this->TarefaAnexos;
-        }//Fim do Metodo getTarefaAnexos()
-
-        //Metodo getTarefaEstudantesDestinados()
-        public function getTarefaEstudantesDestinados(){
-            return $this->TarefaEstudantesDestinados;
-        }//Fim do Metodo getTarefaEstudantesDestinados()
+        //Metodo getUsuarioId()
+        public function getUsuarioId(){
+            return $this->UsuarioId;
+        }//Fim do Metodo getUsuarioId()
 
         //Fim dos Metodos Get's
-
-        //Metodos Adicionais
-
-        //Metodo addTarefaEstudanteDestinados()
-        public function addEstudanteDestinados($estudante){
-            if ($estudante != null) {
-                $this->TarefaEstudantesDestinados[] = $estudante;
-            }
-        }//Fim do Metodo adicionarEstudanteDestinados()
-
-        //Metodo addTarefaAnexo()
-        public function addTarefaAnexo($anexo){
-            $this->TarefaAnexos[] = $anexo;
-        }//Fim do Metodo addTarefaAnexo()
-
-        //Metodo removerTarefaEstudanteDestinados()
-        public function removeEstudanteDestinados($estudante){
-            if(($key = array_search($estudante, $this->TarefaEstudantesDestinados)) !== false) {
-                unset($this->TarefaEstudantesDestinados[$key]);
-            }
-        }//Fim do Metodo removerEstudanteDestinados()
-
-        //Metodo removerTarefaAnexo()
-        public function removeTarefaAnexo($anexo){
-            if(($key = array_search($anexo, $this->TarefaAnexos)) !== false) {
-                unset($this->TarefaAnexos[$key]);
-            }
-        }//Fim do Metodo removerTarefaAnexo()
 
     }//Fim da Classe Tarefa
 ?>

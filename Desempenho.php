@@ -1,22 +1,25 @@
 <?php
     //Classe Desempenho
-    class Desempenho {
+    class DesempenhoTurma {
         //Atributos
+        private $DesempenhoTurmaId; //Chave Primária
         private $DesempenhoTarefasEntregues;
         private $DesempenhoTarefasPendentes;
         private $DesempenhoTarefasExpiradas;
         private $DesempenhoMedia;
         private $DesempenhoNivel;
+        private $TurmaId; //Chave Estrangeira
         //Fim dos atributos
 
         //Metodo Construtor
         public function __construct(
-            $DesempenhoTarefasEntregues, $DesempenhoTarefasPendentes, $DesempenhoTarefasExpiradas, $DesempenhoMedia, $DesempenhoNivel){
+            $DesempenhoTarefasEntregues, $DesempenhoTarefasPendentes, $DesempenhoTarefasExpiradas, $DesempenhoMedia, $DesempenhoNivel, $TurmaId){
             $this->setDesempenhoTarefasEntregues($DesempenhoTarefasEntregues);
             $this->setDesempenhoTarefasPendentes($DesempenhoTarefasPendentes);
             $this->setDesempenhoTarefasExpiradas($DesempenhoTarefasExpiradas);
             $this->setDesempenhoMedia($DesempenhoMedia);
             $this->setDesempenhoNivel($DesempenhoNivel);
+            $this->setTurmaId($TurmaId);
         }//Fim do Metodo Construtor
 
         //Metodos Set's
@@ -56,9 +59,21 @@
             }
         }//Fim do Metodo setDesempenhoNivel()
 
+        //Metodo setTurmaId()
+        public function setTurmaId($TurmaId){
+            if(is_int($TurmaId)){
+                $this->TurmaId = $TurmaId;
+            }
+        }//Fim do Metodo setTurmaId()
+
         //Fim dos Metodos Set's
 
         //Metodos Get's
+
+        //Metodo getDesempenhoTurmaId()
+        public function getDesempenhoTurmaId(){
+            return $this->DesempenhoTurmaId;
+        }//Fim do Metodo getDesempenhoTurmaId()
 
         //Metodo getDesempenhoTarefasEntregues()
         public function getDesempenhoTarefasEntregues(){
@@ -84,6 +99,11 @@
         public function getDesempenhoNivel(){
             return $this->DesempenhoNivel;
         }//Fim do Metodo getDesempenhoNivel()
+
+        //Metodo getTurmaId()
+        public function getTurmaId(){
+            return $this->TurmaId;
+        }//Fim do Metodo getTurmaId()
 
         //Fim dos Metodos Get's
 

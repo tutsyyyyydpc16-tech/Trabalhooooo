@@ -2,24 +2,24 @@
     //Classe Turma
     class Turma {
         //Atributos
+        private $TurmaId; //Chave Primária
         private $TurmaTitulo;
         private $TurmaDescricao;
-        private $TurmaSerie;
-        private $TurmaMateria;
-        private $TurmaAnoLetivo;
-        private $TurmaTutor;
-        private $TurmaEstudantes = [];
-        private $TurmaTarefas = [];
+        private $TurmaDivisao;
+        private $TurmaModuloAno;
+        private $TurmaCor;
+        private $TurmaIdUsuario;
+
         //Fim dos atributos
 
         //Metodo Construtor
-        public function __construct($TurmaTitulo, $TurmaDescricao, $TurmaSerie, $TurmaMateria, $TurmaAnoLetivo, $TurmaTutor){
+        public function __construct($TurmaTitulo, $TurmaDescricao, $TurmaDivisao, $TurmaModuloAno, $TurmaCor, $TurmaIdUsuario){
             $this->setTurmaTitulo($TurmaTitulo);
             $this->setTurmaDescricao($TurmaDescricao);
-            $this->setTurmaSerie($TurmaSerie);
-            $this->setTurmaMateria($TurmaMateria);
-            $this->setTurmaAnoLetivo($TurmaAnoLetivo);
-            $this->setTurmaTutor($TurmaTutor);
+            $this->setTurmaDivisao($TurmaDivisao);
+            $this->setTurmaModuloAno($TurmaModuloAno);
+            $this->setTurmaCor($TurmaCor);
+            $this->setTurmaIdUsuario($TurmaIdUsuario);
         }//Fim do Metodo Construtor
 
         //Metodos Set's
@@ -38,35 +38,42 @@
             }
         }//Fim do Metodo setTurmaDescricao()
 
-        //Metodo setTurmaSerie()
-        public function setTurmaSerie($TurmaSerie){
-            if(is_string($TurmaSerie)){
-                $this->TurmaSerie = $TurmaSerie;
+        //Metodo setTurmaDivisao()
+        public function setTurmaDivisao($TurmaDivisao){
+             if(is_string($TurmaDivisao)){
+                $this->TurmaDivisao = $TurmaDivisao;
             }
-        }//Fim do Metodo setTurmaSerie()
+        }//Fim do Metodo setTurmaDivisao()
 
-        //Metodo setTurmaMateria()
-        public function setTurmaMateria($TurmaMateria){
-            if(is_string($TurmaMateria)){
-                $this->TurmaMateria = $TurmaMateria;
+        //Metodo setTurmaModuloAno()
+        public function setTurmaModuloAno($TurmaModuloAno){
+             if(is_string($TurmaModuloAno)){
+                $this->TurmaModuloAno = $TurmaModuloAno;
             }
-        }//Fim do Metodo setTurmaMateria()
+        }//Fim do Metodo setTurmaModuloAno()
 
-        //Metodo setTurmaAnoLetivo()
-        public function setTurmaAnoLetivo($TurmaAnoLetivo){
-            if(is_string($TurmaAnoLetivo)){
-                $this->TurmaAnoLetivo = $TurmaAnoLetivo;
+        //Metodo setTurmaCor()
+        public function setTurmaCor($TurmaCor){
+            if(is_string($TurmaCor)){
+                $this->TurmaCor = $TurmaCor;
             }
-        }//Fim do Metodo setTurmaAnoLetivo()
+        }//Fim do Metodo setTurmaCor()
 
-        //Metodo setTurmaTutor()
-        public function setTurmaTutor($TurmaTutor){
-            $this->TurmaTutor = $TurmaTutor;
-        }//Fim do Metodo setTurmaTutor()
+        //Metodo setTurmaIdUsuario()
+        public function setTurmaIdUsuario($TurmaIdUsuario){
+            if(is_int($TurmaIdUsuario)){
+                $this->TurmaIdUsuario = $TurmaIdUsuario;
+            }
+        }//Fim do Metodo setTurmaIdUsuario()
 
         //Fim dos Metodos Set's
 
         //Metodos Get's
+
+        //Metodo getTurmaId()
+        public function getTurmaId(){
+            return $this->TurmaId;
+        }//Fim do Metodo getTurmaId()
 
         //Metodo getTurmaTitulo()
         public function getTurmaTitulo(){
@@ -78,51 +85,27 @@
             return $this->TurmaDescricao;
         }//Fim do Metodo getTurmaDescricao()
 
-        //Metodo getTurmaSerie()
-        public function getTurmaSerie(){
-            return $this->TurmaSerie;
-        }//Fim do Metodo getTurmaSerie()
+        //Metodo getTurmaDivisao()
+        public function getTurmaDivisao(){
+            return $this->TurmaDivisao;
+        }//Fim do Metodo getTurmaDivisao()
 
-        //Metodo getTurmaMateria()
-        public function getTurmaMateria(){
-            return $this->TurmaMateria;
-        }//Fim do Metodo getTurmaMateria()
+        //Metodo getTurmaModuloAno()
+        public function getTurmaModuloAno(){
+            return $this->TurmaModuloAno;
+        }//Fim do Metodo getTurmaModuloAno()
 
-        //Metodo getTurmaAnoLetivo()
-        public function getTurmaAnoLetivo(){
-             return $this->TurmaAnoLetivo;
-        }//Fim do Metodo getTurmaAnoLetivo()
+        //Metodo getTurmaCor()
+        public function getTurmaCor(){
+            return $this->TurmaCor;
+        }//Fim do Metodo getTurmaCor()
 
-        //Metodo getTurmaTutor()
-        public function getTurmaTutor(){
-            return $this->TurmaTutor;
-        }//Fim do Metodo getTurmaTutor()
-
-        //Metodo getTurmaEstudantes()
-        public function getTurmaEstudantes(){
-            return $this->TurmaEstudantes;
-        }//Fim do Metodo getTurmaEstudantes()
-
-        //Metodo getTurmaTarefas()
-        public function getTurmaTarefas(){
-            return $this->TurmaTarefas;
-        }//Fim do Metodo getTurmaTarefas()
+        //Metodo getTurmaIdUsuario()
+        public function getTurmaIdUsuario(){
+            return $this->TurmaIdUsuario;
+        }//Fim do Metodo getTurmaIdUsuario()
 
           //Fim dos Metodos Get's
-
-          //Metodos Adicionais
-
-        //Metodo adicionarEstudante()
-        public function addEstudante($estudante){
-            $this->TurmaEstudantes[] = $estudante;
-        }//Fim do Metodo adicionarEstudante()
-
-        //Metodo adicionarTarefa()
-        public function addTarefa($tarefa){
-            $this->TurmaTarefas[] = $tarefa;
-        }//Fim do Metodo adicionarTarefa()
-
-         //Fim dos Metodos Adicionais
 
     }//Fim da Classe Turma
 ?>
