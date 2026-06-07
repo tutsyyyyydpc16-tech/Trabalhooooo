@@ -17,13 +17,14 @@
         private $QuantidadeAvaliacoesCurso;
         private $IdUsuario; //Chave Estrangeira
         private $PrecoCurso;
-        private $IdModuloCurso; //Chave Estrangeira
+        private $Usuario; //Associação
+        private $Modulos; //Agregação
         //Fim dos Atributos
 
         //Metodo Construtor
         public function __construct($TituloCurso, $DescricaoCurso, $CategoriaCurso, $NivelCurso,
          $IdiomaCurso, $CargaHorariaCurso, $CapaCurso, $BannerCurso, $NotaMediaCurso, $DataPublicacaoCurso,
-          $StatusCurso, $QuantidadeAvaliacoesCurso, $IdUsuario, $PrecoCurso, $IdModuloCurso){
+          $StatusCurso, $QuantidadeAvaliacoesCurso, $IdUsuario, $PrecoCurso){
             $this->setTituloCurso($TituloCurso);
             $this->setDescricaoCurso($DescricaoCurso);
             $this->setCategoriaCurso($CategoriaCurso);
@@ -38,7 +39,7 @@
             $this->setQuantidadeAvaliacoesCurso($QuantidadeAvaliacoesCurso);
             $this->setIdUsuario($IdUsuario);
             $this->setPrecoCurso($PrecoCurso);
-            $this->setIdModuloCurso($IdModuloCurso);
+            $this->Modulos = [];
         }//Fim do Metodo Construtor
 
         //Metodos Set's
@@ -141,14 +142,17 @@
             }
         }//Fim do Metodo setPrecoCurso()
 
-        //Metodo setIdModuloCurso()
-        public function setIdModuloCurso($IdModuloCurso){
-            if(is_int($IdModuloCurso)){
-                $this->IdModuloCurso = $IdModuloCurso;
-            }
-        }//Fim do Metodo setIdModuloCurso()
+        //Metodo setUsuario()
+        public function setUsuario(Usuario $u){
+            $this->Usuario = $u;
+        }//Fim do Metodo setUsuario()
 
         //Fim dos Metodos Set's
+
+        //Metodo addModulos()
+        public function addModulos(Modulo $m) {
+            $this->Modulos[] = $m;
+        }//Fim do Metodo addModulos()
 
         //Metodos Get's
 
@@ -227,10 +231,15 @@
             return $this->PrecoCurso;
         }//Fim do Metodo getPrecoCurso()
 
-        //Metodo getIdModuloCurso()
-        public function getIdModuloCurso(){
-            return $this->IdModuloCurso;
-        }//Fim do Metodo getIdModuloCurso()
+        //Metodo getUsuario()
+        public function getUsuario(){
+            return $this->Usuario;
+        }//Fim do Metodo getUsuario()
+
+        //Metodo getModulos()
+        public function getModulos(){
+            return $this->Modulos;
+        }//Fim do Metodo getModulos()
 
         //Fim dos Metodos Get's
     }//Fim da classe Curso
