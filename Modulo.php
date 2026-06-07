@@ -7,6 +7,7 @@
         private $DescricaoModulo;
         private $OrdemModulo;
         private $IdCurso; //Chave Estrangeira
+        private $Aulas; //Composição
         //Fim dos Atributos
 
         //Metodo Construtor
@@ -15,6 +16,7 @@
             $this->setDescricaoModulo($DescricaoModulo);
             $this->setOrdemModulo($OrdemModulo);
             $this->setIdCurso($IdCurso);
+            $this->Aulas = [];
         }//Fim do Metodo Construtor
 
         //Metodos Set's
@@ -49,6 +51,11 @@
 
         //Fim dos Metodos Set's
 
+        //Metodo addAula
+        public function addAula(Aula $a) {
+            $this->Aulas[] = $a;
+        }//Fim do metodo addAula
+
         //Metodos Get's
 
         //Metodo getIdModulo()
@@ -75,6 +82,10 @@
         public function getIdCurso(){
             return $this->IdCurso;
         }//Fim do Metodo getIdCurso()
+
+        public function getAulas(){
+            return $this->Aulas;
+        }
 
         //Fim dos Metodos Get's
 

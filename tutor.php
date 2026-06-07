@@ -1,26 +1,27 @@
-<?php
+<?php //Começo da classe Tutor
+    //Classe Estudante
     //Subclasse
-    class Tutor extends usuario{
+    class Tutor extends Usuario{
         //Atributos
-        protected $disciplina;
+        protected $IdUsuario; //Chave Estrangeira
 
         //Metodo Construtor
-        public function __construct($senha, $usuario, $disciplina){
-            //Enviado para a Superclasse Conta
-            parent::__construct($senha, $usuario);
-            $this->setDisciplina($disciplina);
+        public function __construct($nome, $email, $senha, $telefone, $biografia, $IdUsuario){
+            //Enviado para a Superclasse Usuario
+            parent::__construct($nome, $email, $senha, $telefone, $biografia);
+            $this->setIdUsuario($IdUsuario);
         }//Fim do Metodo Construtor
 
-        //Metodo setDisciplina
-        public function setDisciplina($disciplina){
-            if(is_string($disciplina) && !empty(trim($disciplina))){
-                $this->disciplina = trim($disciplina);
+        //Metodo setIdUsuario
+        public function setIdUsuario($IdUsuario){
+            if(is_int($IdUsuario)){
+                $this->IdUsuario = $IdUsuario;
             }
-        }//Fim do Metodo setDisciplina
+        }//Fim do Metodo setIdUsuario
 
-        //Metodo getDisciplina
-        public function getDisciplina(){
-            return $this->disciplina;
-        }//Fim do Metodo getDisciplina
+        //Metodo getIdUsuario()
+        public function getIdUsuario(){
+            return $this->IdUsuario
+        }//Fim do Metodo getIdUsuario()
     }//Fim da classe Tutor
 ?>

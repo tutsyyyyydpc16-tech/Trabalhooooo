@@ -1,75 +1,79 @@
 <?php
-    //Classe Usuario
+    //classe usuario, brenoooooooooooooooo
     class Usuario{
-    
-    //Atributos
+
+    //atributos
+    private $IdUsuario; //Chave Primária //Set gerado automaticamente pelo Banco de Dados
     private $nome;
     private $email;
-    private $matricula; //Chave Primária
-    private 
-    private $caracteristica = [];
+    private $senha;
+    private $telefone;
+    private $biografia;
 
-    private $conta;
-
-    //Metodo Construtor
-    public function __construct($nome, $idade,Conta $conta){
+    //metodo Constructor
+    public function __construct($nome, $email, $senha, $telefone, $biografia){
         $this->setNome($nome);
-        $this->setIdade($idade);
-        $this->setMatricula($matricula);
-        $this->setConta($conta);
-    }//Fim do metodo construtor
-    
-    // Metodo setNome()
+        $this->setEmail($email);
+        $this->setSenha($senha);
+        $this->setTelefone($telefone);
+        $this->setBiografia($biografia);
+    }//Fim do metodo constructor
+
+    //Metodo setNome()
     public function setNome($nome){
-        if (is_string($nome)){
-            $this->nome = $nome;
-        }
-    }
+        $this->nome = $nome;
+    }//Fim do metodo setNome()
 
-    // Metodo setIdade()
-    public function setIdade($idade){
-        if (is_int($idade) && $idade > 0){
-            $this->idade = $idade;
-        }
-    }
+    //Metodo setemail()
+    public function setEmail($email){
+        $this->email = $email;
+    }//Fim do metodo setemail()
 
-    // Metodo setConta()
-    public function setConta(Conta$c){
-        $this->conta = $c;
-    }// Fim do metodo setConta()
+    //Metodo setSenha()
+    public function setSenha($senha){
+        $this->senha = $senha;
+    }//Fim do metodo setSenha()
 
-    public function addCaracteristica($nome, $valor){
-        $u1 = new Caracteristica($nome, $valor);
-        $this->caracteristica[] = $u1;
-    }//Fim do metodo public function caracteristica
+    //Metodo setTelefone()
+    public function setTelefone($telefone){
+        $this->telefone = $telefone;
+    }//Fim do metodo setTelefone()
 
-    //Metodo Get
+    //Metodo setBiografia()
+    public function setBiografia($biografia){
+        $this->biografia = $biografia;
+    }//Fim do metodo setBiografia()a
 
-    //Metodo getCaracteristicas
-    public function getCaracteristicas(){
-        return $this->caracteristica;
-    }
-    //Fim do Metodo getCaracteristicas
+    //Metodo getIdUsuario()
+    public function getIdUsuario(){
+        return $this->IdUsuario;
+    }//Fim do metodo getIdUsuario()
 
-    public function getConta(){
-        return $this->conta;
-    }//Fim do metodo getConta()
-
-     //Metodo getNome()
-     public function getNome(){
+    //Metodo getNome()
+    public function getNome(){
         return $this->nome;
     }//Fim do metodo getNome()
 
-     //Metodo getIdade()
-     public function getIdade(){
-        return $this->idade;
-    }//Fim do metodo getIdade()
+    //Metodo getEmail()
+    public function getEmail(){
+        return $this->email;
+    }//Fim do metodo getEmail()
 
-     //Metodo getMatricula()
-     public function getMatricula(){
-        return $this->matricula;
-    }//Fim do metodo getMatricula()
+    //Metodo getSenha()
+    public function getSenha(){
+        return $this->senha;
+    }//Fim do metodo getSenha()
 
-}//Fim da classe Usuario
+    //Metodo getTelefone()
+    public function getTelefone(){
+        return $this->telefone;
+    }//Fim do metodo getTelefone()
+
+    //Metodo getBiografia()
+    public function getBiografia(){
+        return $this->biografia;
+    }//Fim do metodo getBiografia()
+
+}//fim da classe usuario ooooooooh maga
 
 ?>

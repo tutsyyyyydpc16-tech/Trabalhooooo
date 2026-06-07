@@ -1,27 +1,27 @@
 <?php //Começo da classe Estudante
     //Classe Estudante
     //Subclasse
-    class Estudante extends usuario{
+    class Estudante extends Usuario{
         //Atributos
-        protected $turma;
+        protected $IdUsuario; //Chave Estrangeira
 
         //Metodo Construtor
-        public function __construct($senha, $usuario, $turma){
-            //Enviado para a Superclasse Conta
-            parent::__construct($senha, $usuario);
-            $this->setTurma($turma);
+        public function __construct($nome, $email, $senha, $telefone, $biografia, $IdUsuario){
+            //Enviado para a Superclasse Usuario
+            parent::__construct($nome, $email, $senha, $telefone, $biografia);
+            $this->setIdUsuario($IdUsuario);
         }//Fim do Metodo Construtor
 
-        //Metodo setTurma
-        public function setTurma($turma){
-            if(is_string($turma) && !empty(trim($turma))){
-                $this->turma = trim($turma);
+        //Metodo setIdUsuario
+        public function setIdUsuario($IdUsuario){
+            if(is_int($IdUsuario)){
+                $this->IdUsuario = $IdUsuario;
             }
-        }//Fim do Metodo setTurma
+        }//Fim do Metodo setIdUsuario
 
-        //Metodo getTurma
-        public function getTurma(){
-            return $this->turma;
-        }//Fim do Metodo getTurma
+        //Metodo getIdUsuario()
+        public function getIdUsuario(){
+            return $this->IdUsuario
+        }//Fim do Metodo getIdUsuario()
     }//Fim da classe Estudante
 ?>
