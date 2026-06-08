@@ -6,7 +6,10 @@
 }
 
 body{
-    background:#e9dff0;
+    background-image: url("OrbitBackground.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 /* HEADER */
