@@ -1,0 +1,133 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#e9dff0;
+}
+
+/* HEADER */
+
+header{
+    background:#ffffff;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 40px;
+}
+
+.logo h1{
+    color:white;
+}
+
+.logo{
+    background:#6b1cd4;
+    padding:10px 20px;
+    border-radius:10px;
+}
+
+nav{
+    display:flex;
+    gap:25px;
+}
+
+nav a{
+    text-decoration:none;
+    color:#333;
+}
+
+/* BANNER */
+
+.banner{
+    background:linear-gradient(
+        90deg,
+        #6b1cd4,
+        #8b2df5
+    );
+
+    color:white;
+    text-align:center;
+    padding:35px;
+}
+
+/* TITULO */
+
+.titulo{
+    text-align:center;
+    margin:25px 0;
+}
+
+/* CARDS PRINCIPAIS */
+
+.cards-principais{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    flex-wrap:wrap;
+}
+
+.card{
+    background:#7a22dd;
+    color:white;
+    width:350px;
+    padding:25px;
+    border-radius:10px;
+}
+
+.card button{
+    margin-top:15px;
+    background:white;
+    color:#7a22dd;
+    border:none;
+    padding:10px 20px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+/* LOGIN */
+
+.login{
+    text-align:center;
+    margin:40px 0;
+}
+
+.login button{
+    margin-top:10px;
+    padding:10px 25px;
+    border:none;
+    background:#7a22dd;
+    color:white;
+    border-radius:8px;
+}
+
+/* CARDS SECUNDÁRIOS */
+
+.cards-secundarios{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+    margin-bottom:50px;
+}
+
+.card-menor{
+    width:280px;
+    background:#7a22dd;
+    color:white;
+    padding:20px;
+    border-radius:10px;
+}
+
+/* FOOTER */
+
+footer{
+    background:#473c54;
+    color:white;
+    display:flex;
+    justify-content:space-around;
+    padding:40px;
+    flex-wrap:wrap;
+}
