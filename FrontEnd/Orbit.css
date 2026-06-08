@@ -14,7 +14,7 @@ body{
 header{
     background:#ffffff;
     display:flex;
-    justify-content:space-between;
+    justify-content:flex-end;
     align-items:center;
     padding:15px 40px;
 }
@@ -23,34 +23,21 @@ header{
     color:white;
 }
 
-.logo{
-    background:#6b1cd4;
-    padding:10px 20px;
-    border-radius:10px;
-}
-
 nav{
     display:flex;
     gap:25px;
 }
 
 nav a{
+    font-weight:bold;
+    color:#23122f;
     text-decoration:none;
-    color:#333;
 }
 
 /* BANNER */
 
 .banner{
-    background:linear-gradient(
-        90deg,
-        #6b1cd4,
-        #8b2df5
-    );
-
-    color:white;
     text-align:center;
-    padding:35px;
 }
 
 /* TITULO */
@@ -58,6 +45,8 @@ nav a{
 .titulo{
     text-align:center;
     margin:25px 0;
+    font-weight:bold;
+    color:#23122f;
 }
 
 /* CARDS PRINCIPAIS */
