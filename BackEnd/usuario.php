@@ -76,4 +76,19 @@
 
 }//fim da classe usuario ooooooooh maga
 
+//Reecebendo o POST
+
+    $nome = $_POST['nome'];
+    $email = $_POST['email'];
+    $senha = $_POST['senha'];
+
+    //Criando usuário
+
+    $usuario = new Usuario($nome, $email, $senha, null, null);
+
+    //Saída
+    echo "Cadastro realizado com sucesso!<br>";
+    echo "Nome: " . $usuario->getNome() . "<br>";
+    echo "Email: " . $usuario->getEmail() . "<br>";
+
 ?>
