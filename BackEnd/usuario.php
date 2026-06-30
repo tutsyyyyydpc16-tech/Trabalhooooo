@@ -86,9 +86,8 @@
 
     $usuario = new Usuario($nome, $email, $senha, null, null);
 
-    //Saída
-    echo "Cadastro realizado com sucesso!<br>";
-    echo "Nome: " . $usuario->getNome() . "<br>";
-    echo "Email: " . $usuario->getEmail() . "<br>";
+    //Mandar para a página inicial
+    header("Location: ../FrontEnd/Orbit.html");
+    exit;
 
 ?>
