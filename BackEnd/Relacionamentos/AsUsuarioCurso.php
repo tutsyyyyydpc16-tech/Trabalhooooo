@@ -1,6 +1,7 @@
 <?php
+    require_once __DIR__ . '/../Config.php';
     //Criação dos objetos
-    $t1 = new Tutor("Breno", "breno.silveira@gmail.com", "123456", null);
+    $t1 = new Tutor("Breno", "breno.silveira@gmail.com", "123456", null, null, "Programação Pra Web");
 
     $c1 = new Curso ("Java", null, "Programação", 2, "Português",
         "40h", 4.8, "2026-07-25", "Publicado", "250",

@@ -1,4 +1,5 @@
 <?php
+    require_once __DIR__ . '/../Config.php';
     //Criação de objeto
 
     $c1 = new Curso ("Java", null, "Programação", 2, "Português",
@@ -8,8 +9,8 @@
 
     $m1 = new Modulo ("Introdução", "Primeiro módulo", "1", $c1);
 
-    $a1 = new Aula("Bem Vindos a Java!", null, "Lógica", "2h", 1, "1");
-    $a2 = new Aula("Java no Mercado", null, "Utilidades", "2h", 2, "1");
+    $a1 = new Aula("Bem Vindos a Java!", null, "Lógica", "2h", 1, $m1);
+    $a2 = new Aula("Java no Mercado", null, "Utilidades", "2h", 2, $m1);
     
     //Adicionando aulas ao módulo
     $m1->addAula($a1);
@@ -25,6 +26,6 @@
         echo "Conteúdo: ".$a->getTipoConteudoAula()."<br>";
         echo "Duração: ".$a->getDuracaoAula()."<br>";
         echo "Ordem: ".$a->getOrdemAula()."<br>";
-        echo "ID do Modúlo: ".$a->getIdModulo()."<br>";
+        echo "ID do Modúlo: ".$a->getModulo()->getIdModulo()."<br>";
     }
 ?>

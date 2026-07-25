@@ -75,19 +75,4 @@
     }//Fim do metodo getBiografia()
 
 }//Fim da Classe Usuário
-
-//Reecebendo o POST
-
-    $nome = $_POST['nome'];
-    $email = $_POST['email'];
-    $senha = $_POST['senha'];
-
-    //Criando usuário
-
-    $usuario = new Usuario($nome, $email, $senha, null, null);
-
-    //Mandar para a página inicial
-    header("Location: ../FrontEnd/Orbit.html");
-    exit;
-
 ?>

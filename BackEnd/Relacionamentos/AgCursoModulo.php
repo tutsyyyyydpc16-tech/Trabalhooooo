@@ -1,4 +1,5 @@
 <?php
+    require_once __DIR__ . '/../Config.php';
     //Criação de objeto
 
     $usuario = new Usuario(
