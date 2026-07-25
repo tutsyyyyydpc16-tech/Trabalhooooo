@@ -45,7 +45,7 @@
     }//Fim do metodo setBiografia()a
 
     //Metodo getIdUsuario()
-    public function getidUsuario(): int {
+    public function getIdUsuario(): int {
         return $this->idUsuario;
     }//Fim do metodo getIdUsuario()
 

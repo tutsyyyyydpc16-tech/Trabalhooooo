@@ -14,14 +14,14 @@
         protected string $statusCurso;
         protected ?int $quantidadeAvaliacoesCurso = null;
         protected float $precoCurso;
-        protected Usuario $usuario; //Associação
+        protected ?Usuario $usuario = null; //Associação
         protected array $modulos = []; //Agregação
         //Fim dos Atributos
 
         //Metodo Construtor
         public function __construct(string $tituloCurso, ?string $descricaoCurso, string $categoriaCurso, int $nivelCurso,
                                     string $idiomaCurso, string $cargaHorariaCurso, float $notaMediaCurso, string $dataPublicacaoCurso,
-                                    string $statusCurso, ?string $quantidadeAvaliacoesCurso, float $precoCurso, Usuario $usuario){
+                                    string $statusCurso, ?string $quantidadeAvaliacoesCurso, float $precoCurso, ?Usuario $usuario){
             $this->setTituloCurso($tituloCurso);
             $this->setDescricaoCurso($descricaoCurso);
             $this->setCategoriaCurso($categoriaCurso);
@@ -94,7 +94,7 @@
         }//Fim do Metodo setPrecoCurso()
 
         //Metodo setUsuario()
-        public function setUsuario(Usuario $usuario): void{
+        public function setUsuario(?Usuario $usuario): void{
             $this->usuario = $usuario;
         }//Fim do Metodo setUsuario()
 
@@ -168,7 +168,7 @@
         }//Fim do Metodo getPrecoCurso()
 
         //Metodo getUsuario()
-        public function getUsuario(): Usuario {
+        public function getUsuario(): ?Usuario {
             return $this->usuario;
         }//Fim do Metodo getUsuario()
 

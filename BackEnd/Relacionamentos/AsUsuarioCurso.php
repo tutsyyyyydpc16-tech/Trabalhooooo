@@ -1,11 +1,11 @@
 <?php
     //Criação dos objetos
-    $c1 = new Curso ('...', '...', '...', '...', '...',
-                    '...', '...', '...', '...', '...',
-                    '...', '...', '...', '...'
-    );
+    $t1 = new Tutor("Breno", "breno.silveira@gmail.com", "123456", null);
 
-    $t1 = new Tutor('...', '...', '...', '...');
+    $c1 = new Curso ("Java", null, "Programação", 2, "Português",
+        "40h", 4.8, "2026-07-25", "Publicado", "250",
+        99.90, $t1
+    );
 
     //Associação
     $c1->setUsuario($t1);
@@ -17,13 +17,11 @@
     echo "Nível do Curso: ".$c1->getNivelCurso()."<br>";
     echo "Idioma do Curso: ".$c1->getIdiomaCurso()."<br>";
     echo "Carga Horária do Curso: ".$c1->getCargaHorariaCurso()."<br>";
-    echo "Capa do Curso: ".$c1->getCapaCurso()."<br>";
-    echo "Banner do Curso: ".$c1->getBannerCurso()."<br>";
     echo "Nota Média do Curso: ".$c1->getNotaMediaCurso()."<br>";
     echo "Data de Publicação do Curso: ".$c1->getDataPublicacaoCurso()."<br>";
     echo "Status do Curso: ".$c1->getStatusCurso()."<br>";
     echo "Quantidade de Avaliações do Curso: ".$c1->getQuantidadeAvaliacoesCurso()."<br>";
-    echo "ID do Usuário do Curso: ".$c1->getIdUsuarioCurso()."<br>";
+    echo "ID do Usuário do Curso: ".$c1->getUsuario()->getIdUsuario()."<br>";
     echo "Preço do Curso: ".$c1->getPrecoCurso()."<br>";
 
     //Exibição do Usuário
