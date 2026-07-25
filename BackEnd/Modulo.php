@@ -2,89 +2,80 @@
     //Classe Modulo
     class Modulo {
         //Atributos
-        private $IdModulo; //Chave Primária //set gerado automaticamente pelo banco de dados
-        private $TituloModulo;
-        private $DescricaoModulo;
-        private $OrdemModulo;
-        private $IdCurso; //Chave Estrangeira
-        private $Aulas; //Composição
+        private ?int $idModulo = null; //Chave Primária //set gerado automaticamente pelo banco de dados
+        private string $tituloModulo;
+        private ?string $descricaoModulo = null;
+        private string $ordemModulo;
+        private Curso $curso;
+        private array $aulas = []; //Composição
         //Fim dos Atributos
 
         //Metodo Construtor
-        public function __construct($TituloModulo, $DescricaoModulo, $OrdemModulo, $IdCurso){
-            $this->setTituloModulo($TituloModulo);
-            $this->setDescricaoModulo($DescricaoModulo);
-            $this->setOrdemModulo($OrdemModulo);
-            $this->setIdCurso($IdCurso);
-            $this->Aulas = [];
+        public function __construct(string $tituloModulo, ?string $descricaoModulo, string $ordemModulo, Curso $curso){
+            $this->setTituloModulo($tituloModulo);
+            $this->setDescricaoModulo($descricaoModulo);
+            $this->setOrdemModulo($ordemModulo);
+            $this->setCurso($curso);
         }//Fim do Metodo Construtor
 
         //Metodos Set's
 
         //Metodo setTituloModulo()
-        public function setTituloModulo($TituloModulo){
-            if(is_string($TituloModulo)){
-                $this->TituloModulo = $TituloModulo;
-            }
+        public function setTituloModulo(string $tituloModulo): void {
+            $this->tituloModulo = $tituloModulo;
         }//Fim do Metodo setTituloModulo()
 
         //Metodo setDescricaoModulo()
-        public function setDescricaoModulo($DescricaoModulo){
-            if(is_string($DescricaoModulo)){
-                $this->DescricaoModulo = $DescricaoModulo;
-            }
+        public function setDescricaoModulo(?string $descricaoModulo): void{
+            $this->descricaoModulo = $descricaoModulo;
         }//Fim do Metodo setDescricaoModulo()
 
         //Metodo setOrdemModulo()
-        public function setOrdemModulo($OrdemModulo){
-            if(is_int($OrdemModulo)){
-                $this->OrdemModulo = $OrdemModulo;
-            }
+        public function setOrdemModulo(string $ordemModulo){
+            $this->ordemModulo = $ordemModulo;
         }//Fim do Metodo setOrdemModulo()
 
-        //Metodo setIdCurso()
-        public function setIdCurso($IdCurso){
-            if(is_int($IdCurso)){
-                $this->IdCurso = $IdCurso;
-            }
-        }//Fim do Metodo setIdCurso()
+        //Metodo setCurso()
+        public function setCurso(Curso $curso): void {
+            $this->curso = $curso;
+        }//Fim do Metodo setCurso()
 
         //Fim dos Metodos Set's
 
         //Metodo addAula
-        public function addAula(Aula $a) {
-            $this->Aulas[] = $a;
+        public function addAula(Aula $aula): void {
+            $this->aulas[] = $aula;
         }//Fim do metodo addAula
 
         //Metodos Get's
 
         //Metodo getIdModulo()
-        public function getIdModulo(){
-            return $this->IdModulo;
+        public function getIdModulo(): ?int{
+            return $this->idModulo;
         }//Fim do Metodo getIdModulo()
 
         //Metodo getTituloModulo()
-        public function getTituloModulo(){
-            return $this->TituloModulo;
+        public function getTituloModulo(): string {
+            return $this->tituloModulo;
         }//Fim do Metodo getTituloModulo()
 
         //Metodo getDescricaoModulo()
-        public function getDescricaoModulo(){
-            return $this->DescricaoModulo;
+        public function getDescricaoModulo(): ?string {
+            return $this->descricaoModulo;
         }//Fim do Metodo getDescricaoModulo()
 
         //Metodo getOrdemModulo()
-        public function getOrdemModulo(){
-            return $this->OrdemModulo;
+        public function getOrdemModulo(): string {
+            return $this->ordemModulo;
         }//Fim do Metodo getOrdemModulo()
 
-        //Metodo getIdCurso()
-        public function getIdCurso(){
-            return $this->IdCurso;
-        }//Fim do Metodo getIdCurso()
+        //Metodo getCurso()
+        public function getCurso(): Curso {
+            return $this->curso;
+        }//Fim do Metodo getCurso()
 
-        public function getAulas(){
-            return $this->Aulas;
+        public function getAulas(): array {
+            return $this->aulas;
         }
 
         //Fim dos Metodos Get's

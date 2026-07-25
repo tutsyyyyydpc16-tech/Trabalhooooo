@@ -2,107 +2,95 @@
     //Classe Aula
     class Aula{
         //Atributos
-        private $IdAula; //Chave Primária //set gerado automaticamente pelo banco de dados
-        private $TituloAula;
-        private $DescricaoAula;
-        private $TipoConteudoAula;
-        private $DuracaoAula;
-        private $OrdemAula;
-        private $IdModulo; //Chave Estrangeira
+        private ?int $idAula = null; //Chave Primária //set gerado automaticamente pelo banco de dados
+        private string $tituloAula;
+        private ?string $descricaoAula = null;
+        private string $tipoConteudoAula;
+        private string $duracaoAula;
+        private string $ordemAula;
+        private Modulo $modulo; //Chave Estrangeira
         //Fim dos Atributos
 
         //Metodo Construtor
-        public function __construct($TituloAula, $DescricaoAula, $TipoConteudoAula, $DuracaoAula, $OrdemAula, $IdModulo){
-            $this->setTituloAula($TituloAula);
-            $this->setDescricaoAula($DescricaoAula);
-            $this->setTipoConteudoAula($TipoConteudoAula);
-            $this->setDuracaoAula($DuracaoAula);
-            $this->setOrdemAula($OrdemAula);
-            $this->setIdModulo($IdModulo);
+        public function __construct(string $tituloAula, ?string $descricaoAula, string $tipoConteudoAula, string $duracaoAula, string $ordemAula, Modulo $modulo){
+            $this->setTituloAula($tituloAula);
+            $this->setDescricaoAula($descricaoAula);
+            $this->setTipoConteudoAula($tipoConteudoAula);
+            $this->setDuracaoAula($duracaoAula);
+            $this->setOrdemAula($ordemAula);
+            $this->setModulo($modulo);
         }//Fim do Metodo Construtor
 
         //Metodos Set's
 
         //Metodo setTituloAula()
-        public function setTituloAula($TituloAula){
-            if(is_string($TituloAula)){
-                $this->TituloAula = $TituloAula;
-            }
+        public function setTituloAula(string $tituloAula): void {
+            $this->tituloAula = $tituloAula;
         }//Fim do Metodo setTituloAula()
 
         //Metodo setDescricaoAula()
-        public function setDescricaoAula($DescricaoAula){
-            if(is_string($DescricaoAula)){
-                $this->DescricaoAula = $DescricaoAula;
-            }
+        public function setDescricaoAula(?string $descricaoAula): void {
+            $this->descricaoAula = $descricaoAula;
         }//Fim do Metodo setDescricaoAula()
 
         //Metodo setTipoConteudoAula()
-        public function setTipoConteudoAula($TipoConteudoAula){
-            if(is_string($TipoConteudoAula)){
-                $this->TipoConteudoAula = $TipoConteudoAula;
-            }
+        public function setTipoConteudoAula(string $tipoConteudoAula): void {
+            $this->tipoConteudoAula = $tipoConteudoAula;
         }//Fim do Metodo setTipoConteudoAula()
 
         //Metodo setDuracaoAula()
-        public function setDuracaoAula($DuracaoAula){
-            if(is_string($DuracaoAula)){
-                $this->DuracaoAula = $DuracaoAula;
-            }
+        public function setDuracaoAula(string $duracaoAula): void {
+            $this->duracaoAula = $duracaoAula;
         }//Fim do Metodo setDuracaoAula()
 
         //Metodo setOrdemAula()
-        public function setOrdemAula($OrdemAula){
-            if(is_int($OrdemAula)){
-                $this->OrdemAula = $OrdemAula;
-            }
+        public function setOrdemAula(string $ordemAula): void {
+            $this->ordemAula = $ordemAula;
         }//Fim do Metodo setOrdemAula()
 
-        //Metodo setIdModulo()
-        public function setIdModulo($IdModulo){
-            if(is_int($IdModulo)){
-                $this->IdModulo = $IdModulo;
-            }
-        }//Fim do Metodo setIdModulo()
+        //Metodo setModulo()
+        public function setModulo(Modulo $modulo): void{
+            $this->modulo = $modulo;
+        }//Fim do Metodo setModulo()
 
         //Fim dos Metodos Set's
 
         //Metodos Get's
 
         //Metodo getIdAula()
-        public function getIdAula(){
-            return $this->IdAula;
+        public function getIdAula(): ?int{
+            return $this->idAula;
         }//Fim do Metodo getIdAula()
 
         //Metodo getTituloAula()
-        public function getTituloAula(){
-            return $this->TituloAula;
+        public function getTituloAula(): string {
+            return $this->tituloAula;
         }//Fim do Metodo getTituloAula()
 
         //Metodo getDescricaoAula()
-        public function getDescricaoAula(){
-            return $this->DescricaoAula;
+        public function getDescricaoAula(): ?string {
+            return $this->descricaoAula;
         }//Fim do Metodo getDescricaoAula()
 
         //Metodo getTipoConteudoAula()
-        public function getTipoConteudoAula(){
-            return $this->TipoConteudoAula;
+        public function getTipoConteudoAula(): string {
+            return $this->tipoConteudoAula;
         }//Fim do Metodo getTipoConteudoAula()
 
         //Metodo getDuracaoAula()
-        public function getDuracaoAula(){
-            return $this->DuracaoAula;
+        public function getDuracaoAula(): string {
+            return $this->duracaoAula;
         }//Fim do Metodo getDuracaoAula()
 
         //Metodo getOrdemAula()
-        public function getOrdemAula(){
-            return $this->OrdemAula;
+        public function getOrdemAula(): string {
+            return $this->ordemAula;
         }//Fim do Metodo getOrdemAula()
 
-        //Metodo getIdModulo()
-        public function getIdModulo(){
-            return $this->IdModulo;
-        }//Fim do Metodo getIdModulo()
+        //Metodo getModulo()
+        public function getModulo(): Modulo {
+            return $this->modulo;
+        }//Fim do Metodo getModulo()
 
         //Fim dos Metodos Get's
     }//Fim da Classe Aula

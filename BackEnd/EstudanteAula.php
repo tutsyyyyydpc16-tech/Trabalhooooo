@@ -4,34 +4,34 @@
     class EstudanteAula{
 
         //Atributos
-        private $id_usuario;
-        private $id_aula;
+        private Estudante $estudante;
+        private Aula $aula;
 
         //Metodo Construtor
-        public function __construct($id_usuario, $id_aula){
-            $this->setIdUsuario($id_usuario);
-            $this->setIdAula($id_aula);
+        public function __construct(Estudante $estudante, Aula $aula){
+            $this->setEstudante($estudante);
+            $this->setAula($aula);
         }//Fim do Metodo Construtor
 
-        //Metodo setidussuario()
-        public function setIdUsuario($id_usuario){
-            $this->id_usuario = $id_usuario;
-        }//Fim do Metodo setidusuario()
+        //Metodo setEstudante()
+        public function setEstudante(Estudante $estudante): void {
+            $this->estudante = $estudante;
+        }//Fim do Metodo setEstudante()
 
-        //Metodo setIdAula()
-        public function setIdAula($id_aula){
-            $this->id_aula = $id_aula;
-        }//Fim do Metodo setIdAula()
+        //Metodo setAula()
+        public function setAula(Aula $aula): void{
+            $this->aula = $aula;
+        }//Fim do Metodo setAula()
 
-        //Metodo getIdUsuario()
-        public function getIdUsuario(){
-            return $this->id_usuario;
-        }//Fim do Metodo getIdUsuario()
+        //Metodo getEstudante()
+        public function getEstudante(): Estudante{
+            return $this->estudante;
+        }//Fim do Metodo getEstudante()
 
-        //Metodo getIdAula()
-        public function getIdAula(){
-            return $this->id_aula;
-        }//Fim do Metodo getIdAula()
+        //Metodo getAula()
+        public function getAula(): Aula {
+            return $this->aula;
+        }//Fim do Metodo getAula()
 
-    }//Fim da classe estudnateaula
+    }//Fim da Classe EstudanteAula
 ?>

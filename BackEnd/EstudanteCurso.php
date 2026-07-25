@@ -2,27 +2,33 @@
     //Classe EstudanteCurso
     class EstudanteCurso{
         //Atributos
-        private $IdEstudante; //Chave Estrangeira
-        private $IdCurso; //Chave Estrangeira
+        private Estudante $estudante;
+        private Curso $curso;
 
         //Metodo Construtor
-        public function __construct($IdEstudante, $IdCurso){
-            $this->setIdEstudante($IdEstudante);
-            $this->setIdCurso($IdCurso);
+        public function __construct(Estudante $estudante, Curso $curso){
+            $this->setEstudante($estudante);
+            $this->setCurso($curso);
         }//Fim do Metodo Construtor
 
-        //Metodo setIdEstudante()
-        public function setIdEstudante($IdEstudante){
-            if(is_int($IdEstudante)){
-                $this->IdEstudante = $IdEstudante;
-            }
-        }//Fim do Metodo setIdEstudante()
+        //Metodo setEstudante()
+        public function setEstudante(Estudante $estudante): void {
+            $this->estudante = $estudante;
+        }//Fim do Metodo setEstudante()
 
-        //Metodo setIdCurso()
-        public function setIdCurso($IdCurso){
-            if(is_int($IdCurso)){
-                $this->IdCurso = $IdCurso;
-            }
-        }//Fim do Metodo setIdCurso()
-    }//Fim da classe EstudanteCurso
+        //Metodo setCurso()
+        public function setCurso(Curso $curso): void {
+            $this->curso = $curso;
+        }//Fim do Metodo setCurso()
+
+        //Metoodo getEstudante()
+        public function getEstudante(): Estudante {
+            return $this->estudante;
+        }//Fim do Metodo getEstudante
+
+        //Metodo getCurso()
+        public function getCurso(): Curso {
+            return $this->curso;
+        }//Fim do Metodo getCurso()
+    }//Fim da Classe EstudanteCurso
 ?>

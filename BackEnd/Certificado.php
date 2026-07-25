@@ -2,58 +2,48 @@
     //Classe Certificado
     class Certificado {
         //Atributos
-        private $IdCertificado; //Chave Primária //set gerado automaticamente pelo banco de dados
-        private $CodigoValidacao;
-        private $DataEmissao;
-        private $CertificadoStatus;
-        private $IdUsuario; //Chave Estrangeira
-        private $IdCurso; //Chave Estrangeira
+        private ?int $idCertificado = null; //Chave Primária //set gerado automaticamente pelo banco de dados
+        private string $codigoValidacao;
+        private string $dataEmissao;
+        private string $certificadoStatus;
+        private Usuario $usuario;
+        private Curso $curso;
         //Fim dos Atributos
 
         //Metodo Construtor
-        public function __construct($CodigoValidacao, $DataEmissao, $CertificadoStatus, $IdUsuario, $IdCurso){
-            $this->setCodigoValidacao($CodigoValidacao);
-            $this->setDataEmissao($DataEmissao);
-            $this->setCertificadoStatus($CertificadoStatus);
-            $this->setIdUsuario($IdUsuario);
-            $this->setIdCurso($IdCurso);
+        public function __construct(string $codigoValidacao, string $dataEmissao, string $certificadoStatus, Usuario $usuario, Curso $curso){
+            $this->setCodigoValidacao($codigoValidacao);
+            $this->setDataEmissao($dataEmissao);
+            $this->setCertificadoStatus($certificadoStatus);
+            $this->setUsuario($usuario);
+            $this->setCurso($curso);
         }//Fim do Metodo Construtor
 
         //Metodos Set's
 
         //Metodo setCodigoValidacao()
-        public function setCodigoValidacao($CodigoValidacao){
-            if(is_string($CodigoValidacao)){
-                $this->CodigoValidacao = $CodigoValidacao;
-            }
+        public function setCodigoValidacao(string $codigoValidacao): void {
+            $this->codigoValidacao = $codigoValidacao;
         }//Fim do Metodo setCodigoValidacao()
 
         //Metodo setDataEmissao()
-        public function setDataEmissao($DataEmissao){
-            if(is_string($DataEmissao)){
-                $this->DataEmissao = $DataEmissao;
-            }
+        public function setDataEmissao(string $dataEmissao): void {
+            $this->dataEmissao = $dataEmissao;
         }//Fim do Metodo setDataEmissao()
 
         //Metodo setCertificadoStatus()
-        public function setCertificadoStatus($CertificadoStatus){
-            if(is_string($CertificadoStatus)){
-                $this->CertificadoStatus = $CertificadoStatus;
-            }
+        public function setCertificadoStatus(string $certificadoStatus): void{
+            $this->certificadoStatus = $certificadoStatus;
         }//Fim do Metodo setCertificadoStatus()
 
-        //Metodo setIdUsuario()
-        public function setIdUsuario($IdUsuario){
-            if(is_int($IdUsuario)){
-                $this->IdUsuario = $IdUsuario;
-            }
-        }//Fim do Metodo setIdUsuario()
+        //Metodo setUsuario()
+        public function setUsuario(Usuario $usuario): void {
+            $this->usuario = $usuario;
+        }//Fim do Metodo setUsuario()
 
         //Metodo setIdCurso()
-        public function setIdCurso($IdCurso){
-            if(is_int($IdCurso)){
-                $this->IdCurso = $IdCurso;
-            }
+        public function setCurso(Curso $curso): void {
+            $this->curso = $curso;
         }//Fim do Metodo setIdCurso()
 
         //Fim dos Metodos Set's
@@ -61,34 +51,34 @@
         //Metodos Get's
 
         //Metodo getIdCertificado()
-        public function getIdCertificado(){
-            return $this->IdCertificado;
-        }//Fim do Metodo getIdCertificado()
+        public function getIdCertificado(): ?int {
+            return $this->idCertificado;
+        }//Fim do Metodo getidCertificado()
 
         //Metodo getCodigoValidacao()
-        public function getCodigoValidacao(){
-            return $this->CodigoValidacao;
+        public function getCodigoValidacao(): string {
+            return $this->codigoValidacao;
         }//Fim do Metodo getCodigoValidacao()
 
         //Metodo getDataEmissao()
-        public function getDataEmissao(){
-            return $this->DataEmissao;
+        public function getDataEmissao(): string{
+            return $this->dataEmissao;
         }//Fim do Metodo getDataEmissao()
 
         //Metodo getCertificadoStatus()
-        public function getCertificadoStatus(){
-            return $this->CertificadoStatus;
+        public function getCertificadoStatus(): string {
+            return $this->certificadoStatus;
         }//Fim do Metodo getCertificadoStatus()
 
-        //Metodo getIdUsuario()
-        public function getIdUsuario(){
-            return $this->IdUsuario;
-        }//Fim do Metodo getIdUsuario()
+        //Metodo getUsuario()
+        public function getUsuario(): Usuario {
+            return $this->usuario;
+        }//Fim do Metodo getUsuario()
 
-        //Metodo getIdCurso()
-        public function getIdCurso(){
-            return $this->IdCurso;
-        }//Fim do Metodo getIdCurso()
+        //Metodo getCurso()
+        public function getCurso(): Curso {
+            return $this->curso;
+        }//Fim do Metodo getCurso()
 
         //Fim dos Metodos Get's
     }//Fim da Classe Certificado

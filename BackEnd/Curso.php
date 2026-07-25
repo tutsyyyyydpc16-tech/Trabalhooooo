@@ -2,243 +2,179 @@
     //Clase Curso
     class Curso{
         //Atributos
-        private $IdCurso; //Chave Primária //set gerado automaticamente pelo banco de dados
-        private $TituloCurso;
-        private $DescricaoCurso;
-        private $CategoriaCurso;
-        private $NivelCurso;
-        private $IdiomaCurso;
-        private $CargaHorariaCurso;
-        private $CapaCurso;
-        private $BannerCurso;
-        private $NotaMediaCurso;
-        private $DataPublicacaoCurso;
-        private $StatusCurso;
-        private $QuantidadeAvaliacoesCurso;
-        private $IdUsuario; //Chave Estrangeira
-        private $PrecoCurso;
-        private $Usuario; //Associação
-        private $Modulos; //Agregação
+        protected ?int $idCurso = null; //Chave Primária //set gerado automaticamente pelo banco de dados
+        protected string $tituloCurso;
+        protected ?string $descricaoCurso = null;
+        protected string $categoriaCurso;
+        protected int $nivelCurso;
+        protected string $idiomaCurso;
+        protected string $cargaHorariaCurso;
+        protected float $notaMediaCurso;
+        protected string $dataPublicacaoCurso;
+        protected string $statusCurso;
+        protected ?int $quantidadeAvaliacoesCurso = null;
+        protected float $precoCurso;
+        protected Usuario $usuario; //Associação
+        protected array $modulos = []; //Agregação
         //Fim dos Atributos
 
         //Metodo Construtor
-        public function __construct($TituloCurso, $DescricaoCurso, $CategoriaCurso, $NivelCurso,
-         $IdiomaCurso, $CargaHorariaCurso, $CapaCurso, $BannerCurso, $NotaMediaCurso, $DataPublicacaoCurso,
-          $StatusCurso, $QuantidadeAvaliacoesCurso, $IdUsuario, $PrecoCurso){
-            $this->setTituloCurso($TituloCurso);
-            $this->setDescricaoCurso($DescricaoCurso);
-            $this->setCategoriaCurso($CategoriaCurso);
-            $this->setNivelCurso($NivelCurso);
-            $this->setIdiomaCurso($IdiomaCurso);
-            $this->setCargaHorariaCurso($CargaHorariaCurso);
-            $this->setCapaCurso($CapaCurso);
-            $this->setBannerCurso($BannerCurso);
-            $this->setNotaMediaCurso($NotaMediaCurso);
-            $this->setDataPublicacaoCurso($DataPublicacaoCurso);
-            $this->setStatusCurso($StatusCurso);
-            $this->setQuantidadeAvaliacoesCurso($QuantidadeAvaliacoesCurso);
-            $this->setIdUsuario($IdUsuario);
-            $this->setPrecoCurso($PrecoCurso);
-            $this->Modulos = [];
+        public function __construct(string $tituloCurso, ?string $descricaoCurso, string $categoriaCurso, int $nivelCurso,
+                                    string $idiomaCurso, string $cargaHorariaCurso, float $notaMediaCurso, string $dataPublicacaoCurso,
+                                    string $statusCurso, ?string $quantidadeAvaliacoesCurso, float $precoCurso, Usuario $usuario){
+            $this->setTituloCurso($tituloCurso);
+            $this->setDescricaoCurso($descricaoCurso);
+            $this->setCategoriaCurso($categoriaCurso);
+            $this->setNivelCurso($nivelCurso);
+            $this->setIdiomaCurso($idiomaCurso);
+            $this->setCargaHorariaCurso($cargaHorariaCurso);
+            $this->setNotaMediaCurso($notaMediaCurso);
+            $this->setDataPublicacaoCurso($dataPublicacaoCurso);
+            $this->setStatusCurso($statusCurso);
+            $this->setQuantidadeAvaliacoesCurso($quantidadeAvaliacoesCurso);
+            $this->setPrecoCurso($precoCurso);
+            $this->setUsuario($usuario);
         }//Fim do Metodo Construtor
 
         //Metodos Set's
 
         //Metodo setTituloCurso()
-        public function setTituloCurso($TituloCurso){
-            if(is_string($TituloCurso)){
-                $this->TituloCurso = $TituloCurso;
-            }
+        public function setTituloCurso(string $tituloCurso): void {
+            $this->tituloCurso = $tituloCurso;
         }//Fim do Metodo setTituloCurso()
 
         //Metodo setDescricaoCurso()
-        public function setDescricaoCurso($DescricaoCurso){
-            if(is_string($DescricaoCurso)){
-                $this->DescricaoCurso = $DescricaoCurso;
-            }
+        public function setDescricaoCurso(?string $descricaoCurso): void{
+            $this->descricaoCurso = $descricaoCurso;
         }//Fim do Metodo setDescricaoCurso()
 
         //Metodo setCategoriaCurso()
-        public function setCategoriaCurso($CategoriaCurso){
-            if(is_string($CategoriaCurso)){
-                $this->CategoriaCurso = $CategoriaCurso;
-            }
+        public function setCategoriaCurso(string $categoriaCurso): void {
+            $this->categoriaCurso = $categoriaCurso;
         }//Fim do Metodo setCategoriaCurso()
 
         //Metodo setNivelCurso()
-        public function setNivelCurso($NivelCurso){
-            if(is_string($NivelCurso)){
-                $this->NivelCurso = $NivelCurso;
-            }
+        public function setNivelCurso(int $nivelCurso): void {
+            $this->nivelCurso = $nivelCurso;
         }//Fim do Metodo setNivelCurso()
 
         //Metodo setIdiomaCurso()
-        public function setIdiomaCurso($IdiomaCurso){
-            if(is_string($IdiomaCurso)){
-                $this->IdiomaCurso = $IdiomaCurso;
-            }
+        public function setIdiomaCurso(string $idiomaCurso): void {
+            $this->idiomaCurso = $idiomaCurso;
         }//Fim do Metodo setIdiomaCurso()
 
         //Metodo setCargaHorariaCurso()
-        public function setCargaHorariaCurso($CargaHorariaCurso){
-            if(is_int($CargaHorariaCurso)){
-                $this->CargaHorariaCurso = $CargaHorariaCurso;
-            }
+        public function setCargaHorariaCurso(string $cargaHorariaCurso): void {
+            $this->cargaHorariaCurso = $cargaHorariaCurso;
         }//Fim do Metodo setCargaHorariaCurso()
 
-        //Metodo setCapaCurso()
-        public function setCapaCurso($CapaCurso){
-            if(is_string($CapaCurso)){
-                $this->CapaCurso = $CapaCurso;
-            }
-        }//Fim do Metodo setCapaCurso()
-
-        //Metodo setBannerCurso()
-        public function setBannerCurso($BannerCurso){
-            if(is_string($BannerCurso)){
-                $this->BannerCurso = $BannerCurso;
-            }
-        }//Fim do Metodo setBannerCurso()
-
         //Metodo setNotaMediaCurso()
-        public function setNotaMediaCurso($NotaMediaCurso){
-            if(is_float($NotaMediaCurso) || is_int($NotaMediaCurso)){
-                $this->NotaMediaCurso = $NotaMediaCurso;
-            }
+        public function setNotaMediaCurso(float $notaMediaCurso): void {
+            $this->notaMediaCurso = $notaMediaCurso;
         }//Fim do Metodo setNotaMediaCurso()
 
         //Metodo setDataPublicacaoCurso()
-        public function setDataPublicacaoCurso($DataPublicacaoCurso){
-            if(is_string($DataPublicacaoCurso)){
-                $this->DataPublicacaoCurso = $DataPublicacaoCurso;
-            }
+        public function setDataPublicacaoCurso(string $dataPublicacaoCurso): void{
+            $this->dataPublicacaoCurso = $dataPublicacaoCurso;
         }//Fim do Metodo setDataPublicacaoCurso()
 
         //Metodo setStatusCurso()
-        public function setStatusCurso($StatusCurso){
-            if(is_string($StatusCurso)){
-                $this->StatusCurso = $StatusCurso;
-            }
+        public function setStatusCurso(string $statusCurso): void {
+            $this->statusCurso = $statusCurso;
         }//Fim do Metodo setStatusCurso()
 
         //Metodo setQuantidadeAvaliacoesCurso()
-        public function setQuantidadeAvaliacoesCurso($QuantidadeAvaliacoesCurso){
-            if(is_int($QuantidadeAvaliacoesCurso)){
-                $this->QuantidadeAvaliacoesCurso = $QuantidadeAvaliacoesCurso;
-            }
+        public function setQuantidadeAvaliacoesCurso(?int $quantidadeAvaliacoesCurso): void {
+            $this->quantidadeAvaliacoesCurso = $quantidadeAvaliacoesCurso;
         }//Fim do Metodo setQuantidadeAvaliacoesCurso()
 
-        //Metodo setIdUsuario()
-        public function setIdUsuario($IdUsuario){
-            if(is_int($IdUsuario)){
-                $this->IdUsuario = $IdUsuario;
-            }
-        }//Fim do Metodo setIdUsuario()
-
         //Metodo setPrecoCurso()
-        public function setPrecoCurso($PrecoCurso){
-            if(is_float($PrecoCurso) || is_int($PrecoCurso)){
-                $this->PrecoCurso = $PrecoCurso;
-            }
+        public function setPrecoCurso(float $precoCurso): void {
+            $this->precoCurso = $precoCurso;
         }//Fim do Metodo setPrecoCurso()
 
         //Metodo setUsuario()
-        public function setUsuario(Usuario $u){
-            $this->Usuario = $u;
+        public function setUsuario(Usuario $usuario): void{
+            $this->usuario = $usuario;
         }//Fim do Metodo setUsuario()
 
         //Fim dos Metodos Set's
 
-        //Metodo addModulos()
-        public function addModulos(Modulo $m) {
-            $this->Modulos[] = $m;
+        //Metodo addModulo()
+        public function addModulo(Modulo $modulo): void {
+            $this->modulos[] = $modulo;
         }//Fim do Metodo addModulos()
 
         //Metodos Get's
 
         //Metodo getIdCurso()
-        public function getIdCurso(){
-            return $this->IdCurso;
+        public function getIdCurso(): ?int {
+            return $this->idCurso;
         }//Fim do Metodo getIdCurso()
 
         //Metodo getTituloCurso()
-        public function getTituloCurso(){
-            return $this->TituloCurso;
+        public function getTituloCurso(): string {
+            return $this->tituloCurso;
         }//Fim do Metodo getTituloCurso()
 
         //Metodo getDescricaoCurso()
-        public function getDescricaoCurso(){
-            return $this->DescricaoCurso;
+        public function getDescricaoCurso(): ?string {
+            return $this->descricaoCurso;
         }//Fim do Metodo getDescricaoCurso()
 
         //Metodo getCategoriaCurso()
-        public function getCategoriaCurso(){
-            return $this->CategoriaCurso;
+        public function getCategoriaCurso(): string {
+            return $this->categoriaCurso;
         }//Fim do Metodo getCategoriaCurso()
 
         //Metodo getNivelCurso()
-        public function getNivelCurso(){
-            return $this->NivelCurso;
+        public function getNivelCurso(): int {
+            return $this->nivelCurso;
         }//Fim do Metodo getNivelCurso()
 
         //Metodo getIdiomaCurso()
-        public function getIdiomaCurso(){
-            return $this->IdiomaCurso;
+        public function getIdiomaCurso(): string {
+            return $this->idiomaCurso;
         }//Fim do Metodo getIdiomaCurso()
 
         //Metodo getCargaHorariaCurso()
-        public function getCargaHorariaCurso(){
-            return $this->CargaHorariaCurso;
+        public function getCargaHorariaCurso(): string {
+            return $this->cargaHorariaCurso;
         }//Fim do Metodo getCargaHorariaCurso()
 
-        //Metodo getCapaCurso()
-        public function getCapaCurso(){
-            return $this->CapaCurso;
-        }//Fim do Metodo getCapaCurso()
-
-        //Metodo getBannerCurso()
-        public function getBannerCurso(){
-            return $this->BannerCurso;
-        }//Fim do Metodo getBannerCurso()
-
         //Metodo getNotaMediaCurso()
-        public function getNotaMediaCurso(){
-            return $this->NotaMediaCurso;
+        public function getNotaMediaCurso(): float {
+            return $this->notaMediaCurso;
         }//Fim do Metodo getNotaMediaCurso()
 
         //Metodo getDataPublicacaoCurso()
-        public function getDataPublicacaoCurso(){
-            return $this->DataPublicacaoCurso;
+        public function getDataPublicacaoCurso(): string {
+            return $this->dataPublicacaoCurso;
         }//Fim do Metodo getDataPublicacaoCurso()
 
         //Metodo getStatusCurso()
-        public function getStatusCurso(){
-            return $this->StatusCurso;
+        public function getStatusCurso(): string {
+            return $this->statusCurso;
         }//Fim do Metodo getStatusCurso()
 
         //Metodo getQuantidadeAvaliacoesCurso()
-        public function getQuantidadeAvaliacoesCurso(){
-            return $this->QuantidadeAvaliacoesCurso;
+        public function getQuantidadeAvaliacoesCurso(): ?int {
+            return $this->quantidadeAvaliacoesCurso;
         }//Fim do Metodo getQuantidadeAvaliacoesCurso()
 
-        //Metodo getIdUsuario()
-        public function getIdUsuario(){
-            return $this->IdUsuario;
-        }//Fim do Metodo getIdUsuario()
-
         //Metodo getPrecoCurso()
-        public function getPrecoCurso(){
-            return $this->PrecoCurso;
+        public function getPrecoCurso(): float {
+            return $this->precoCurso;
         }//Fim do Metodo getPrecoCurso()
 
         //Metodo getUsuario()
-        public function getUsuario(){
-            return $this->Usuario;
+        public function getUsuario(): Usuario {
+            return $this->usuario;
         }//Fim do Metodo getUsuario()
 
         //Metodo getModulos()
-        public function getModulos(){
-            return $this->Modulos;
+        public function getModulos(): array {
+            return $this->modulos;
         }//Fim do Metodo getModulos()
 
         //Fim dos Metodos Get's

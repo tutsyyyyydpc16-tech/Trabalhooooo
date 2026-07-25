@@ -8,7 +8,7 @@
     $m1 = new Modulo ('...', '...', '...', '...');
     $m2 = new Modulo ('...', '...', '...', '...');
     $m3 = new Modulo ('...', '...', '...', '...');
-    $m3 = new Modulo ('...', '...', '...', '...');
+    $m4 = new Modulo ('...', '...', '...', '...');
 
     //Agregação dos Módulos no Curso
     $c1->addModulo($m1);
