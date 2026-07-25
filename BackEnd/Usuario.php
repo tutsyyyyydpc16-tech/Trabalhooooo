@@ -1,5 +1,5 @@
 <?php
-    //classe usuario, brenoooooooooooooooo
+    //Classe Usuário
     class Usuario{
 
     //atributos
@@ -42,10 +42,10 @@
     //Metodo setBiografia()
     public function setBiografia(?string $biografia): void {
         $this->biografia = $biografia;
-    }//Fim do metodo setBiografia()a
+    }//Fim do metodo setBiografia()
 
     //Metodo getIdUsuario()
-    public function getIdUsuario(): int {
+    public function getIdUsuario(): ?int {
         return $this->idUsuario;
     }//Fim do metodo getIdUsuario()
 
@@ -74,7 +74,7 @@
         return $this->biografia;
     }//Fim do metodo getBiografia()
 
-}//fim da classe usuario ooooooooh maga
+}//Fim da Classe Usuário
 
 //Reecebendo o POST
 

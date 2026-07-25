@@ -15,7 +15,8 @@
         //Metodo setMatricula()
         public function setMatricula(int $matricula) : void {
             $this->matricula = $matricula;
-        }
+        }//Fim do Metodo setMatricula()
+
         //Metodo getMatricula
         public function getMatricula() : int{
             return $this->matricula;

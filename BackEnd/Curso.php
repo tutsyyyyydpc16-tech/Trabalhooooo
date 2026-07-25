@@ -21,7 +21,7 @@
         //Metodo Construtor
         public function __construct(string $tituloCurso, ?string $descricaoCurso, string $categoriaCurso, int $nivelCurso,
                                     string $idiomaCurso, string $cargaHorariaCurso, float $notaMediaCurso, string $dataPublicacaoCurso,
-                                    string $statusCurso, ?string $quantidadeAvaliacoesCurso, float $precoCurso, ?Usuario $usuario){
+                                    string $statusCurso, ?int $quantidadeAvaliacoesCurso, float $precoCurso, ?Usuario $usuario){
             $this->setTituloCurso($tituloCurso);
             $this->setDescricaoCurso($descricaoCurso);
             $this->setCategoriaCurso($categoriaCurso);

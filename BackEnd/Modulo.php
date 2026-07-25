@@ -31,7 +31,7 @@
         }//Fim do Metodo setDescricaoModulo()
 
         //Metodo setOrdemModulo()
-        public function setOrdemModulo(string $ordemModulo){
+        public function setOrdemModulo(string $ordemModulo): void {
             $this->ordemModulo = $ordemModulo;
         }//Fim do Metodo setOrdemModulo()
 
